@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" thread-count="2" parallel="methods"
+          name="tests/vwoTests/TestVwoLogin_POM.java">
+        <classes>
+            <class name="Shashank.WebAutomation.tests.vwoTests.TestVwoLogin_POM">
+            </class>
+        </classes>
+    </test>
+</suite>
