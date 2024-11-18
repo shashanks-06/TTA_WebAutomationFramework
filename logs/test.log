@@ -1,3 +1,6 @@
 2024-11-18 13:02:56 INFO  TestVwoLogin_POM - Starting the TestCase
 2024-11-18 13:02:56 INFO  TestVwoLogin_POM - Opening the URL
 2024-11-18 13:03:08 INFO  TestVwoLogin_POM - Verifying the Error message in the field
+2024-11-18 13:42:46 INFO  TestVwoLogin_PF - Starting the TestCase
+2024-11-18 13:42:46 INFO  TestVwoLogin_PF - Opening the URL
+2024-11-18 13:42:57 INFO  TestVwoLogin_PF - Verifying the Error message in the field :-> Your email, password, IP address or location did not match

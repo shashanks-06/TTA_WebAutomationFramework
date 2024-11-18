@@ -21,10 +21,10 @@ public class CommonToAllPage {
         getDriver().get(PropertyReader.readKey("url"));
     }
 
-    public void clickElements(By by){
+    public void clickElement(By by){
         getDriver().findElement(by).click();
     }
-    public void clickElements(WebElement element){
+    public void clickElement(WebElement element){
         element.click();
     }
 
