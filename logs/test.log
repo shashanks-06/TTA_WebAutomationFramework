@@ -16,3 +16,9 @@
 2024-11-20 18:13:29 INFO  TestVwoLogin_POM_with_RetryListener - Starting the TestCase
 2024-11-20 18:13:29 INFO  TestVwoLogin_POM_with_RetryListener - Opening the URL
 2024-11-20 18:13:39 INFO  TestVwoLogin_POM_with_RetryListener - Verifying the Error message in the field :-> Your email, password, IP address or location did not match
+2024-11-20 20:46:39 INFO  TestVwoLogin_POM - Starting the TestCase
+2024-11-20 20:46:39 INFO  TestVwoLogin_POM - Opening the URL
+2024-11-20 20:46:50 INFO  TestVwoLogin_POM - Verifying the Error message in the field :-> Your email, password, IP address or location did not match
+2024-11-20 20:47:21 INFO  TestVwoLogin_POM - Starting the TestCase
+2024-11-20 20:47:21 INFO  TestVwoLogin_POM - Opening the URL
+2024-11-20 20:47:32 INFO  TestVwoLogin_POM - Verifying the Error message in the field :-> Your email, password, IP address or location did not match

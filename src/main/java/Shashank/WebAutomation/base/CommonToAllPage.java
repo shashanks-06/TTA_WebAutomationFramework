@@ -18,7 +18,7 @@ public class CommonToAllPage {
     }
 
     public void openVwoLoginUrl(){
-        getDriver().get(PropertyReader.readKey("url"));
+        getDriver().get(PropertyReader.readKey("vwoUrl"));
     }
 
     public void clickElement(By by){

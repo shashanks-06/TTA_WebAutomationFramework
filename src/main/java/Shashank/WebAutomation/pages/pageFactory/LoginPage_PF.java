@@ -21,7 +21,7 @@ public class LoginPage_PF extends CommonToAllPage {
     }
 
     public String loginToVwo_InvalidCreds(String user, String pwd){
-        DriverManager.getDriver().get(PropertyReader.readKey("url"));
+        DriverManager.getDriver().get(PropertyReader.readKey("vwoUrl"));
         enterInput(username, user);
         enterInput(password, pwd);
         clickElement(signInBtn);

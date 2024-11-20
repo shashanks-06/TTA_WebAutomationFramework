@@ -22,7 +22,7 @@ public class LoginPage_POM extends CommonToAllPage {
 
 //    Page Actions
     public String loginToVwo_InvalidCreds(String user, String pwd) {
-        driver.get(PropertyReader.readKey("url"));
+        driver.get(PropertyReader.readKey("vwoUrl"));
         driver.findElement(username).sendKeys(user);
         driver.findElement(password).sendKeys(pwd);
         driver.findElement(signInButton).click();
