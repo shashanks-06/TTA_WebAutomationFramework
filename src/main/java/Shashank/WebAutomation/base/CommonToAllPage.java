@@ -1,9 +1,11 @@
 package Shashank.WebAutomation.base;
 
+import Shashank.WebAutomation.driver.DriverManager;
 import Shashank.WebAutomation.utils.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -19,6 +21,10 @@ public class CommonToAllPage {
 
     public void openVwoLoginUrl(){
         getDriver().get(PropertyReader.readKey("vwoUrl"));
+    }
+
+    public void openKatalonUrl(){
+        getDriver().get(PropertyReader.readKey("katalon_url"));
     }
 
     public void clickElement(By by){
@@ -62,6 +68,18 @@ public class CommonToAllPage {
         }
     }
 
+    public void selectClass_dropdownSelection(WebElement dropdownElement, int index){
+        Select select = new Select(dropdownElement);
+        select.selectByIndex(index);
+    }
+    public void selectClass_dropdownSelection(WebElement dropdownElement, WebElement byValue){
+        Select select = new Select(dropdownElement);
+        select.selectByValue(byValue.getAttribute("value"));
+    }
+    public void selectClass_dropdownSelection(WebElement dropdownElement, String byVisibleText){
+        Select select = new Select(dropdownElement);
+        select.selectByVisibleText(byVisibleText);
+    }
 
 
 }
