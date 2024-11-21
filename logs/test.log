@@ -22,3 +22,18 @@
 2024-11-20 20:47:21 INFO  TestVwoLogin_POM - Starting the TestCase
 2024-11-20 20:47:21 INFO  TestVwoLogin_POM - Opening the URL
 2024-11-20 20:47:32 INFO  TestVwoLogin_POM - Verifying the Error message in the field :-> Your email, password, IP address or location did not match
+2024-11-21 11:52:12 INFO  TestVwoLogin_POM - Starting the TestCase
+2024-11-21 11:52:12 INFO  TestVwoLogin_POM - Opening the URL
+2024-11-21 11:52:23 INFO  TestVwoLogin_POM - Verifying the Error message in the field :-> Your email, password, IP address or location did not match
+2024-11-21 11:52:39 INFO  TestVwoLogin_POM_with_RetryListener - Starting the TestCase
+2024-11-21 11:52:39 INFO  TestVwoLogin_POM_with_RetryListener - Opening the URL
+2024-11-21 11:52:50 INFO  TestVwoLogin_POM_with_RetryListener - Verifying the Error message in the field :-> Your email, password, IP address or location did not match
+2024-11-21 11:53:00 INFO  TestVwoLogin_PF - Starting the TestCase
+2024-11-21 11:53:00 INFO  TestVwoLogin_PF - Opening the URL
+2024-11-21 11:53:11 INFO  TestVwoLogin_PF - Verifying the Error message in the field :-> Your email, password, IP address or location did not match
+2024-11-21 11:56:18 INFO  TestVwoLoginPositive_POM - Starting the TestCase
+2024-11-21 11:56:18 INFO  TestVwoLoginPositive_POM - Login to VWO
+2024-11-21 11:56:29 INFO  TestVwoLoginPositive_POM - Getting the name of User on Dashboard
+2024-11-21 11:56:33 INFO  TestVwoLoginPositive_POM - Logout the User
+2024-11-21 11:56:35 INFO  TestVwoLoginPositive_POM - Getting the name of Logo on LoginPage
+2024-11-21 11:56:38 INFO  TestVwoLoginPositive_POM - Ending the TestCase
