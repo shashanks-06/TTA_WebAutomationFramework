@@ -53,6 +53,15 @@ public class CommonToAllPage {
         return getDriver().findElement(key);
     }
 
+//    Static wait -> Thread.sleep()
+    public void staticWait_Thread(int timeInMilliSeconds){
+        try {
+            Thread.sleep(timeInMilliSeconds);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 
 }

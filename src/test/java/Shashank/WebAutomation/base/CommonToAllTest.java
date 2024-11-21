@@ -11,6 +11,7 @@ public class CommonToAllTest {
         DriverManager.init();
     }
 
+
     @AfterMethod
     public void tearDown(){
         DriverManager.down();

@@ -18,6 +18,8 @@ public class LoginPage_POM extends CommonToAllPage {
     private By password = By.id("login-password");
     private By signInButton = By.id("js-login-btn");
     private By errorMsg = By.id("js-notification-box-msg");
+    private final By dashboardName = By.cssSelector("[data-qa=\"lufexuloga\"]");
+    private final By vwoLogo = By.cssSelector("img[alt='VWO'][width='132px']");
 
 
 //    Page Actions
@@ -27,17 +29,33 @@ public class LoginPage_POM extends CommonToAllPage {
         driver.findElement(password).sendKeys(pwd);
         driver.findElement(signInButton).click();
 
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        staticWait_Thread(3000);
 
         String errorMsgText = driver.findElement(errorMsg).getText();
 
         return errorMsgText;
 
     }
+
+    public void loginToVwo_ValidCreds (String user, String pwd){
+
+        openVwoLoginUrl();
+        enterInput(username, user);
+        enterInput(password, pwd);
+        clickElement(signInButton);
+
+        staticWait_Thread(3000);
+
+    }
+
+    public String verify_backToLoginPage(){
+        staticWait_Thread(2000);
+
+        presenceOfElements(vwoLogo);
+
+        return getElement(vwoLogo).getAttribute("alt");
+    }
+
 
 
 }
