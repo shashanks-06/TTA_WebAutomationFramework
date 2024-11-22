@@ -1,6 +1,5 @@
 package Shashank.WebAutomation.base;
 
-import Shashank.WebAutomation.driver.DriverManager;
 import Shashank.WebAutomation.utils.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -57,6 +56,9 @@ public class CommonToAllPage {
 //    To get Elements
     public WebElement getElement(By key){
         return getDriver().findElement(key);
+    }
+    public String getElementAsText(By key){
+        return getDriver().findElement(key).getText();
     }
 
 //    Static wait -> Thread.sleep()
