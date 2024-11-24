@@ -27,6 +27,7 @@ public class Test_KatalonAppointment extends CommonToAllTest {
                 DriverManager.getDriver());
         katalonAppointmentPagePom.bookAppointment(
                 PropertyReader.readKey("katalon_date"),
+                PropertyReader.readKey("katalon_monthYear"),
                 PropertyReader.readKey("katalon_comment")
         );
 
@@ -48,19 +49,19 @@ public class Test_KatalonAppointment extends CommonToAllTest {
 
         String isReadmission = katalonBookedAppointmentPom.getReadmissionLabel();
         assertThat(isReadmission).isEqualTo(PropertyReader.readKey("katalon_expectedReadmission"));
-        System.out.println("Readmission :" +  isReadmission);
+        System.out.println("Readmission : " +  isReadmission);
 
         String nameOfProgram = katalonBookedAppointmentPom.getProgramName();
         assertThat(nameOfProgram).isEqualTo(PropertyReader.readKey("katalon_expectedProgram"));
-        System.out.println("Healthcare Program :" +  nameOfProgram);
+        System.out.println("Healthcare Program : " +  nameOfProgram);
 
         String dateOfProgram = katalonBookedAppointmentPom.getDate();
         assertThat(dateOfProgram).isEqualTo(PropertyReader.readKey("katalon_expectedDate"));
-        System.out.println("Visit Date :" +  dateOfProgram);
+        System.out.println("Visit Date : " +  dateOfProgram);
 
 
         String addedComment = katalonBookedAppointmentPom.getComment();
         assertThat(addedComment).isEqualTo(PropertyReader.readKey("katalon_expectedComment"));
-        System.out.println("Comment :" +  addedComment);
+        System.out.println("Comment : " +  addedComment);
     }
 }

@@ -22,7 +22,7 @@ public class Katalon_AppointmentPage_POM extends CommonToAllPage {
     private final By bookAppointmentBtn = By.id("btn-book-appointment");
 
 
-    public void bookAppointment(String date, String comments){
+    public void bookAppointment(String date, String monthYear, String comments){
         presenceOfElements(appointmentHeading);
 
         clickElement(facilityDropdown);
@@ -32,9 +32,12 @@ public class Katalon_AppointmentPage_POM extends CommonToAllPage {
         clickElement(checkbox);
         clickElement(radioBtn);
 
-        clickElement(calendarInputField);
-        clickElement(nextMonthBtn);
-        selectDate(date);
+//        clickElement(calendarInputField);
+//        clickElement(nextMonthBtn);
+//        selectDate(date);
+
+        calendarDateSelection(calendarInputField, nextMonthBtn,
+                date, monthYear);
 
         enterInput(commentTextarea, comments);
 
@@ -44,7 +47,7 @@ public class Katalon_AppointmentPage_POM extends CommonToAllPage {
 
     }
 
-    public void selectDate(String date){
-        driver.findElement(By.xpath("//td[normalize-space()='" + date + "']")).click();
-    }
+//    public void selectDate(String date){
+//        driver.findElement(By.xpath("//td[normalize-space()='" + date + "']")).click();
+//    }
 }

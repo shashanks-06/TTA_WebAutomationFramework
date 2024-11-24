@@ -52,6 +52,11 @@ public class CommonToAllPage {
                 .until(ExpectedConditions.visibilityOfElementLocated(elementLocation));
     }
 
+    public WebElement elementToBeClickable(By elementLocation){
+        return new WebDriverWait(getDriver(), Duration.ofSeconds(20))
+                .until(ExpectedConditions.elementToBeClickable(elementLocation));
+    }
+
 
 //    To get Elements
     public WebElement getElement(By key){
@@ -81,6 +86,40 @@ public class CommonToAllPage {
     public void selectClass_dropdownSelection(WebElement dropdownElement, String byVisibleText){
         Select select = new Select(dropdownElement);
         select.selectByVisibleText(byVisibleText);
+    }
+
+//    Handling Calendar
+
+
+
+    public void calendarDateSelection(By calendarKey, By nextBtnKey, String targetDay, String targetMonthYear){
+
+        // Open the calendar
+        clickElement(calendarKey);
+
+        staticWait_Thread(2000);
+        visibilityOfElement(By.xpath(
+                "(//table[@class=\"table-condensed\"])[1]/thead/tr[2]/th[2]"));
+
+        // Loop until the correct year and month are displayed
+        while (true){
+            String displayedMonthYear = getElementAsText(By.xpath(
+                    "(//table[@class=\"table-condensed\"])[1]/thead/tr[2]/th[2]"));
+
+            // Break the loop if the correct month and year are displayed
+            if (displayedMonthYear.contains(targetMonthYear)){
+                break;
+            }
+
+            // Click next button to navigate to the next month
+            elementToBeClickable(nextBtnKey);
+            clickElement(nextBtnKey);
+        }
+
+        staticWait_Thread(2000);
+
+        // Select the target date
+        clickElement(By.xpath("//td[text()='" + targetDay + "']"));
     }
 
 
