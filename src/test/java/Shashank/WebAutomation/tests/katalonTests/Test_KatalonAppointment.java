@@ -24,13 +24,16 @@ public class Test_KatalonAppointment extends CommonToAllTest {
 
         logger.info("Starting the Booking of Hospital Appointment");
 
+//        Homepage
         Katalon_HomePage_POM katalonHomePagePom = new Katalon_HomePage_POM(DriverManager.getDriver());
         String nameOfHeading = katalonHomePagePom.makeAnAppointment();
         System.out.println(nameOfHeading);
 
+//        Login Page
         Katalon_LoginPage_POM katalonLoginPagePom = new Katalon_LoginPage_POM(DriverManager.getDriver());
         katalonLoginPagePom.loginToKatalon();
 
+//        Appointment Page
         Katalon_AppointmentPage_POM katalonAppointmentPagePom = new Katalon_AppointmentPage_POM(
                 DriverManager.getDriver());
         katalonAppointmentPagePom.bookAppointment(
@@ -41,8 +44,13 @@ public class Test_KatalonAppointment extends CommonToAllTest {
 
         System.out.println();
 
+//        Booked Appointment Page
         Katalon_BookedAppointment_POM katalonBookedAppointmentPom = new Katalon_BookedAppointment_POM(
                 DriverManager.getDriver());
+
+//        Taking Booked Appointment Screenshot
+        katalonBookedAppointmentPom.takeScreenshotOfBooking();
+
         String headingOfBookedAppointment = katalonBookedAppointmentPom.getBookedAppointmentHeading();
         assertThat(headingOfBookedAppointment).isEqualTo(PropertyReader.readKey("katalon_appointmentConfirmation"));
         System.out.println(headingOfBookedAppointment);
