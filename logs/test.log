@@ -37,3 +37,5 @@
 2024-11-21 11:56:33 INFO  TestVwoLoginPositive_POM - Logout the User
 2024-11-21 11:56:35 INFO  TestVwoLoginPositive_POM - Getting the name of Logo on LoginPage
 2024-11-21 11:56:38 INFO  TestVwoLoginPositive_POM - Ending the TestCase
+2024-11-24 20:56:18 INFO  Test_KatalonAppointment - Starting the Booking of Hospital Appointment
+2024-11-24 20:56:36 INFO  Test_KatalonAppointment - Successfully Done Booking Hospital
