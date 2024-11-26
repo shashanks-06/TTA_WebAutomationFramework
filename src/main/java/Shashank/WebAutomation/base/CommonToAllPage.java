@@ -3,6 +3,7 @@ package Shashank.WebAutomation.base;
 import Shashank.WebAutomation.utils.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,6 +25,10 @@ public class CommonToAllPage {
 
     public void openKatalonUrl(){
         getDriver().get(PropertyReader.readKey("katalon_url"));
+    }
+
+    public void openSauceUrl(){
+        getDriver().get(PropertyReader.readKey("sauce_url"));
     }
 
     public void clickElement(By by){
@@ -129,6 +134,7 @@ public class CommonToAllPage {
         // Select the target date
         clickElement(By.xpath("//td[text()='" + targetDay + "']"));
     }
+
 
 
 }
