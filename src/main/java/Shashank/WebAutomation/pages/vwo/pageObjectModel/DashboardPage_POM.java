@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.pages.pageObjectModel;
+package Shashank.WebAutomation.pages.vwo.pageObjectModel;
 
 import Shashank.WebAutomation.base.CommonToAllPage;
 import org.openqa.selenium.By;

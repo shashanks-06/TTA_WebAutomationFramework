@@ -3,7 +3,7 @@ package Shashank.WebAutomation.tests.vwoTests;
 import Shashank.WebAutomation.base.CommonToAllTest;
 import Shashank.WebAutomation.driver.DriverManager;
 import Shashank.WebAutomation.listeners.RetryAnalyzer;
-import Shashank.WebAutomation.pages.pageObjectModel.LoginPage_POM;
+import Shashank.WebAutomation.pages.vwo.pageObjectModel.LoginPage_POM;
 import Shashank.WebAutomation.utils.PropertyReader;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;

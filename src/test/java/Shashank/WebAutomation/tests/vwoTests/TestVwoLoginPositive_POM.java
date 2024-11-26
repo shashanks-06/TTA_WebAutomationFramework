@@ -2,8 +2,8 @@ package Shashank.WebAutomation.tests.vwoTests;
 
 import Shashank.WebAutomation.base.CommonToAllTest;
 import Shashank.WebAutomation.driver.DriverManager;
-import Shashank.WebAutomation.pages.pageObjectModel.DashboardPage_POM;
-import Shashank.WebAutomation.pages.pageObjectModel.LoginPage_POM;
+import Shashank.WebAutomation.pages.vwo.pageObjectModel.DashboardPage_POM;
+import Shashank.WebAutomation.pages.vwo.pageObjectModel.LoginPage_POM;
 import Shashank.WebAutomation.utils.PropertyReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

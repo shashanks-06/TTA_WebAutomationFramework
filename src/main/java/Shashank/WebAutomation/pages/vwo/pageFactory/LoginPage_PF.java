@@ -1,4 +1,4 @@
-package Shashank.WebAutomation.pages.pageFactory;
+package Shashank.WebAutomation.pages.vwo.pageFactory;
 
 import Shashank.WebAutomation.base.CommonToAllPage;
 import Shashank.WebAutomation.driver.DriverManager;
