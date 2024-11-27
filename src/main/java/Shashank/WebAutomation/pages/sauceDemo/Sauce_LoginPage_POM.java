@@ -5,10 +5,10 @@ import Shashank.WebAutomation.utils.PropertyReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class SauceLoginPage_POM extends CommonToAllPage {
+public class Sauce_LoginPage_POM extends CommonToAllPage {
     WebDriver driver;
 
-    public SauceLoginPage_POM(WebDriver driver) {
+    public Sauce_LoginPage_POM(WebDriver driver) {
         this.driver = driver;
     }
 
