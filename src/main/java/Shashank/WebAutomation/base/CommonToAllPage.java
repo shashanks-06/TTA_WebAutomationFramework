@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 import static Shashank.WebAutomation.driver.DriverManager.getDriver;
 
@@ -77,6 +78,12 @@ public class CommonToAllPage {
     }
     public String getElementAsText(By key){
         return getDriver().findElement(key).getText();
+    }
+    public List<WebElement> getElementS(By key){
+        return getDriver().findElements(key);
+    }
+    public String getElementSAsText(By key, int index){
+        return getDriver().findElements(key).get(index).getText();
     }
 
 //    Static wait -> Thread.sleep()
