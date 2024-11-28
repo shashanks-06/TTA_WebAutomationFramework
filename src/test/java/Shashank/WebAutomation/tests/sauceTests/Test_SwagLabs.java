@@ -2,6 +2,7 @@ package Shashank.WebAutomation.tests.sauceTests;
 
 import Shashank.WebAutomation.base.CommonToAllTest;
 import Shashank.WebAutomation.driver.DriverManager;
+import Shashank.WebAutomation.pages.sauceDemo.Sauce_CartPage_POM;
 import Shashank.WebAutomation.pages.sauceDemo.Sauce_Dashboard_POM;
 import Shashank.WebAutomation.pages.sauceDemo.Sauce_LoginPage_POM;
 import Shashank.WebAutomation.utils.PropertyReader;
@@ -22,12 +23,24 @@ public class Test_SwagLabs extends CommonToAllTest {
         System.out.println(sauceDashboardPom.getHeading());
         Assert.assertEquals(sauceDashboardPom.getHeading(), PropertyReader.readKey("sauce_expectedHeadingName"));
 
-        sauceDashboardPom.selectCheapProduct();
+        String cheapestProduct = sauceDashboardPom.selectCheapProduct();
         String cartItemsNum = sauceDashboardPom.getNumOfCartItems();
         System.out.println("Number of cart items : " + cartItemsNum);
-        Assert.assertEquals(cartItemsNum, "1");
+        Assert.assertEquals(cartItemsNum, PropertyReader.readKey("sauce_expectedCartItemsNum"));
 
         sauceDashboardPom.clickOnCartBtn();
+
+        Sauce_CartPage_POM sauceCartPagePom = new Sauce_CartPage_POM(DriverManager.getDriver());
+
+        String yourCartHeading = sauceCartPagePom.getYourCartHeading();
+        System.out.println("Your cart heading : " + yourCartHeading);
+        Assert.assertEquals(yourCartHeading, PropertyReader.readKey("sauce_expectedYourCartHeading"));
+
+        String cartItemName = sauceCartPagePom.getCartItemName();
+        Assert.assertEquals(cartItemName, cheapestProduct);
+        System.out.println("Cart Item Selected and Item in the Cart is Same.");
+
+
     }
 
 }

@@ -16,6 +16,7 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
 
     private final By headingOfDashboard = By.className("app_logo");
     private final By priceElements = By.className("inventory_item_price");
+    private final By productElements = By.cssSelector("[class=\"inventory_item_name \"]");
     private final By addToCartBtnElements = By.cssSelector("[class=\"btn btn_primary btn_small btn_inventory \"]");
     private final By numOfCartItems = By.className("shopping_cart_badge");
     private final By cartBtnElement = By.cssSelector("[class=\"shopping_cart_link\"]");
@@ -24,10 +25,12 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
         return getElementAsText(headingOfDashboard);
     }
 
-    public void selectCheapProduct(){
+    public String selectCheapProduct(){
 
         List<WebElement> priceList;
         List<WebElement> addToCartBtnList;
+        List<WebElement> productsList;
+        String cheapestProductName = null;
 
         double minPrice = Double.MAX_VALUE; // To track the lowest price
         int minPriceIndex = -1;             // To track the index of the cheapest product
@@ -37,6 +40,7 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
             // Re-locate elements on every iteration to avoid StaleElementReferenceException
             priceList = getElementS(priceElements);
             addToCartBtnList = getElementS(addToCartBtnElements);
+            productsList = getElementS(productElements);
 
             // Exit if all products are processed
             if (i >= priceList.size()){
@@ -54,15 +58,16 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
 
         // Add the cheapest product to the cart
         if (minPriceIndex != -1){
+            productsList = getElementS(productElements);
+            cheapestProductName = productsList.get(minPriceIndex).getText();
             addToCartBtnList = getElementS(addToCartBtnElements);
             addToCartBtnList.get(minPriceIndex).click();
-            System.out.println("Cheapest Product added to the cart. Price : $" + minPrice);
+            System.out.println("Cheapest Product '"+ cheapestProductName +"' added to the cart. Price : $" + minPrice);
         }else {
             System.out.println("No products found.");
         }
 
-        staticWait_Thread(2000);
-
+        return cheapestProductName;
     }
 
     public String getNumOfCartItems(){
