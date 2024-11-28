@@ -18,6 +18,7 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
     private final By priceElements = By.className("inventory_item_price");
     private final By addToCartBtnElements = By.cssSelector("[class=\"btn btn_primary btn_small btn_inventory \"]");
     private final By numOfCartItems = By.className("shopping_cart_badge");
+    private final By cartBtnElement = By.cssSelector("[class=\"shopping_cart_link\"]");
 
     public String getHeading(){
         return getElementAsText(headingOfDashboard);
@@ -66,5 +67,10 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
 
     public String getNumOfCartItems(){
         return getElementAsText(numOfCartItems);
+    }
+
+    public void clickOnCartBtn(){
+        clickElement(cartBtnElement);
+        staticWait_Thread(2000);
     }
 }

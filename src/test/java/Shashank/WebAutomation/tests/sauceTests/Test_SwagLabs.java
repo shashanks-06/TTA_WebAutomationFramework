@@ -26,6 +26,8 @@ public class Test_SwagLabs extends CommonToAllTest {
         String cartItemsNum = sauceDashboardPom.getNumOfCartItems();
         System.out.println("Number of cart items : " + cartItemsNum);
         Assert.assertEquals(cartItemsNum, "1");
+
+        sauceDashboardPom.clickOnCartBtn();
     }
 
 }
