@@ -28,8 +28,6 @@ public class Sauce_LoginPage_POM extends CommonToAllPage {
         enterInput(passwordField, PropertyReader.readKey("sauce_password"));
         clickElement(submitBtn);
 
-        staticWait_Thread(2000);
-
         return heading;
     }
 
