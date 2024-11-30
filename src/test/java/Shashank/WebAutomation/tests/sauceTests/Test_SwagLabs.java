@@ -61,6 +61,8 @@ public class Test_SwagLabs extends CommonToAllTest {
         Assert.assertEquals(cartItemName, cheapestProduct);
 
         System.out.println("Cart Item Selected and Item in the Cart is Same.");
+
+        sauceCartPagePom.clickCheckoutBtn();
     }
 
 
@@ -70,5 +72,12 @@ public class Test_SwagLabs extends CommonToAllTest {
         String checkoutHeadingName = sauceCheckoutPagePom.getCheckoutHeadingName();
 //        Assert.assertEquals(checkoutHeadingName, PropertyReader.readKey("sauce_expectedCheckoutHeadingName"));
         System.out.println("Checkout page Heading Name: " + checkoutHeadingName);
+
+        sauceCheckoutPagePom.setInputFields(
+                PropertyReader.readKey("sauce_firstname"),
+                PropertyReader.readKey("sauce_lastname"),
+                PropertyReader.readKey("sauce_postalCode")
+        );
+        sauceCheckoutPagePom.clickOnContinueBtn();
     }
 }
