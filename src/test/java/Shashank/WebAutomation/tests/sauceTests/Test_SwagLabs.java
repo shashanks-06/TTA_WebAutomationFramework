@@ -2,13 +2,12 @@ package Shashank.WebAutomation.tests.sauceTests;
 
 import Shashank.WebAutomation.base.CommonToAllTest;
 import Shashank.WebAutomation.driver.DriverManager;
-import Shashank.WebAutomation.pages.sauceDemo.Sauce_CartPage_POM;
-import Shashank.WebAutomation.pages.sauceDemo.Sauce_CheckoutPage_POM;
-import Shashank.WebAutomation.pages.sauceDemo.Sauce_Dashboard_POM;
-import Shashank.WebAutomation.pages.sauceDemo.Sauce_LoginPage_POM;
+import Shashank.WebAutomation.pages.sauceDemo.*;
 import Shashank.WebAutomation.utils.PropertyReader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.assertj.core.api.Assertions.*;
 
 public class Test_SwagLabs extends CommonToAllTest {
 
@@ -16,6 +15,7 @@ public class Test_SwagLabs extends CommonToAllTest {
     Sauce_Dashboard_POM sauceDashboardPom;
     Sauce_CartPage_POM sauceCartPagePom;
     Sauce_CheckoutPage_POM sauceCheckoutPagePom;
+    Sauce_CheckoutPage2_POM sauceCheckoutPage2Pom;
 
     private String cheapestProduct;
 
@@ -79,5 +79,27 @@ public class Test_SwagLabs extends CommonToAllTest {
                 PropertyReader.readKey("sauce_postalCode")
         );
         sauceCheckoutPagePom.clickOnContinueBtn();
+    }
+
+    @Test(dependsOnMethods = "test_CheckoutPageOfSwagLabs")
+    public void test_CheckoutPage2OfSwagLabs(){
+        sauceCheckoutPage2Pom = new Sauce_CheckoutPage2_POM(DriverManager.getDriver());
+
+        System.out.println("Sauce CheckoutPage 2 Heading -> " + sauceCheckoutPage2Pom.getHeading());
+        assertThat(sauceCheckoutPage2Pom.getHeading()).isEqualTo(PropertyReader.readKey("sauce_expectedCheckout2HeadingName"));
+
+        assertThat(sauceCheckoutPage2Pom.getProductName()).isEqualTo(cheapestProduct);
+        System.out.println("Cart Item Selected and Checkout Item is Same.");
+        System.out.println("Product Name: " + sauceCheckoutPage2Pom.getProductName());
+
+        assertThat(sauceCheckoutPage2Pom.getPaymentInfo()).isEqualTo(PropertyReader.readKey("sauce_paymentInfo"));
+        System.out.println("Payment Information: " + sauceCheckoutPage2Pom.getPaymentInfo());
+
+        assertThat(sauceCheckoutPage2Pom.getShippingInfo()).isEqualTo(PropertyReader.readKey("sauce_shippingInfo"));
+        System.out.println("Shipping Information: " + sauceCheckoutPage2Pom.getShippingInfo());
+
+        sauceCheckoutPage2Pom.clickOnFinish();
+
+        System.out.println("Successfully done Checking out the Product!!");
     }
 }
