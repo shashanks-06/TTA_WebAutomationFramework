@@ -64,8 +64,6 @@ public class Test_SwagLabs extends CommonToAllTest {
         String cartItemName = sauceCartPagePom.getCartItemName();
         String cartItemPrice = sauceCartPagePom.getCartItemPrice();
 
-        System.out.println(cartItemPrice + " : " + cheapestProductPrice);
-
         Assert.assertEquals(cartItemName, cheapestProductName);
         assertThat(cartItemPrice).isEqualTo(cheapestProductPrice);
 
