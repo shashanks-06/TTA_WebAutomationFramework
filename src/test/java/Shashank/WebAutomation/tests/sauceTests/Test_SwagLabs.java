@@ -99,6 +99,10 @@ public class Test_SwagLabs extends CommonToAllTest {
         System.out.println("Cart Item Selected and Checkout Item is Same.");
         System.out.println("Product Name: " + sauceCheckoutPage2Pom.getProductName());
 
+        assertThat(sauceCheckoutPage2Pom.getProductPrice()).isEqualTo(cheapestProductPrice);
+        System.out.println("Selected Cart Item Price and Checkout Item Price is Same.");
+        System.out.println("Product Price: " + sauceCheckoutPage2Pom.getProductPrice());
+
         assertThat(sauceCheckoutPage2Pom.getPaymentInfo()).isEqualTo(PropertyReader.readKey("sauce_paymentInfo"));
         System.out.println("Payment Information: " + sauceCheckoutPage2Pom.getPaymentInfo());
 
@@ -107,6 +111,6 @@ public class Test_SwagLabs extends CommonToAllTest {
 
         sauceCheckoutPage2Pom.clickOnFinish();
 
-        System.out.println("Successfully done Checking out the Product!!");
+        System.out.println("Successfully Done Checking Out the Product!!");
     }
 }

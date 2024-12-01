@@ -13,6 +13,7 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
 
     private final By checkoutPage2HeadingElement = By.cssSelector("[class=\"title\"]");
     private final By productNameElement = By.cssSelector("[class=\"inventory_item_name\"]");
+    private final By productPriceElement = By.cssSelector("[class=\"inventory_item_price\"]");
     private final By paymentInfoElement = By.xpath("//div[@class=\"summary_value_label\"][1]");
     private final By shippingInfoElement = By.xpath("//div[@class=\"summary_value_label\"][2]");
     private final By finishBtnElement = By.id("finish");
@@ -26,6 +27,11 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
     public String getProductName(){
         visibilityOfElement(productNameElement);
         return getElementAsText(productNameElement);
+    }
+
+    public String getProductPrice(){
+        visibilityOfElement(productPriceElement);
+        return getElementAsText(productPriceElement);
     }
 
     public String getPaymentInfo(){
