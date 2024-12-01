@@ -109,6 +109,12 @@ public class Test_SwagLabs extends CommonToAllTest {
         assertThat(sauceCheckoutPage2Pom.getShippingInfo()).isEqualTo(PropertyReader.readKey("sauce_shippingInfo"));
         System.out.println("Shipping Information: " + sauceCheckoutPage2Pom.getShippingInfo());
 
+        String totalPriceWithTax = String.valueOf(sauceCheckoutPage2Pom.getTotalPriceWithTax());
+        String totalPrice = String.valueOf(sauceCheckoutPage2Pom.getTotalPrice());
+
+        Assert.assertEquals(totalPrice, totalPriceWithTax);
+        System.out.println("Total Price: $" + totalPrice);
+
         sauceCheckoutPage2Pom.clickOnFinish();
 
         System.out.println("Successfully Done Checking Out the Product!!");
