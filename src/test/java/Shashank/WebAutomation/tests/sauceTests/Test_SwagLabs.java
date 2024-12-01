@@ -77,7 +77,7 @@ public class Test_SwagLabs extends CommonToAllTest {
     public void test_CheckoutPageOfSwagLabs(){
         sauceCheckoutPagePom = new Sauce_CheckoutPage_POM(DriverManager.getDriver());
         String checkoutHeadingName = sauceCheckoutPagePom.getCheckoutHeadingName();
-//        Assert.assertEquals(checkoutHeadingName, PropertyReader.readKey("sauce_expectedCheckoutHeadingName"));
+        Assert.assertEquals(checkoutHeadingName, PropertyReader.readKey("sauce_expectedCheckoutHeadingName"));
         System.out.println("Checkout page Heading Name: " + checkoutHeadingName);
 
         sauceCheckoutPagePom.setInputFields(
