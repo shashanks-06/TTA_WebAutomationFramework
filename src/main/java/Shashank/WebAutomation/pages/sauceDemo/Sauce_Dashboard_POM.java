@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Sauce_Dashboard_POM extends CommonToAllPage {
@@ -25,12 +26,13 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
         return getElementAsText(headingOfDashboard);
     }
 
-    public String selectCheapProduct(){
+    public String[] selectCheapProduct(){
 
         List<WebElement> priceList;
         List<WebElement> addToCartBtnList;
         List<WebElement> productsList;
         String cheapestProductName = null;
+        String cheapestProductPrice = null;
 
         double minPrice = Double.MAX_VALUE; // To track the lowest price
         int minPriceIndex = -1;             // To track the index of the cheapest product
@@ -47,8 +49,8 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
                 break;
             }
 
-            String priceText = getElementSAsText(priceElements, i); // Example: "$29.90"
-            double price = Double.parseDouble(priceText.replace("$", "")); // Remove "$" and convert to double
+            cheapestProductPrice = getElementSAsText(priceElements, i); // Example: "$29.90"
+            double price = Double.parseDouble(cheapestProductPrice.replace("$", "")); // Remove "$" and convert to double
 
             if (price < minPrice){
                 minPrice = price;
@@ -60,14 +62,15 @@ public class Sauce_Dashboard_POM extends CommonToAllPage {
         if (minPriceIndex != -1){
             productsList = getElementS(productElements);
             cheapestProductName = productsList.get(minPriceIndex).getText();
+            cheapestProductPrice = priceList.get(minPriceIndex).getText();
             addToCartBtnList = getElementS(addToCartBtnElements);
             addToCartBtnList.get(minPriceIndex).click();
-            System.out.println("Cheapest Product '"+ cheapestProductName +"' added to the cart. Price : $" + minPrice);
+            System.out.println("Cheapest Product '"+ cheapestProductName +"' added to the cart. Price : " + cheapestProductPrice);
         }else {
             System.out.println("No products found.");
         }
 
-        return cheapestProductName;
+        return new String[]{cheapestProductName, cheapestProductPrice};
     }
 
     public String getNumOfCartItems(){

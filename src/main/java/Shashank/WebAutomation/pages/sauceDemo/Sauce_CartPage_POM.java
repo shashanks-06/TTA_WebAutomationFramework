@@ -13,6 +13,7 @@ public class Sauce_CartPage_POM extends CommonToAllPage {
 
     private final By yourCartHeading = By.cssSelector("[class=\"title\"]");
     private final By cartItemElement = By.cssSelector("[class=\"inventory_item_name\"]");
+    private final By cartItemPriceElement = By.cssSelector("[class=\"inventory_item_price\"]");
     private final By checkoutBtnElement = By.id("checkout");
 
     public String getYourCartHeading(){
@@ -25,7 +26,13 @@ public class Sauce_CartPage_POM extends CommonToAllPage {
         return getElementAsText(cartItemElement);
     }
 
+    public String getCartItemPrice(){
+        visibilityOfElement(cartItemPriceElement);
+        return getElementAsText(cartItemPriceElement);
+    }
+
     public void clickCheckoutBtn(){
+        elementToBeClickable(checkoutBtnElement);
         clickElement(checkoutBtnElement);
     }
 }

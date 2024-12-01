@@ -17,8 +17,8 @@ public class Test_SwagLabs extends CommonToAllTest {
     Sauce_CheckoutPage_POM sauceCheckoutPagePom;
     Sauce_CheckoutPage2_POM sauceCheckoutPage2Pom;
 
-    private String cheapestProduct;
-
+    private String cheapestProductName;
+    private String cheapestProductPrice;
 
     @Test
     public void test_LoginToSwagLabs(){
@@ -37,9 +37,14 @@ public class Test_SwagLabs extends CommonToAllTest {
         System.out.println(sauceDashboardPom.getHeading());
         Assert.assertEquals(sauceDashboardPom.getHeading(), PropertyReader.readKey("sauce_expectedHeadingName"));
 
-        cheapestProduct = sauceDashboardPom.selectCheapProduct();
+        String[] cheapestProductDetails = sauceDashboardPom.selectCheapProduct();
+        cheapestProductName = cheapestProductDetails[0];
+        cheapestProductPrice = cheapestProductDetails[1];
+
         String cartItemsNum = sauceDashboardPom.getNumOfCartItems();
         System.out.println("Number of cart items : " + cartItemsNum);
+
+
         Assert.assertEquals(cartItemsNum, PropertyReader.readKey("sauce_expectedCartItemsNum"));
 
         sauceDashboardPom.clickOnCartBtn();
@@ -57,8 +62,12 @@ public class Test_SwagLabs extends CommonToAllTest {
         Assert.assertEquals(yourCartHeading, PropertyReader.readKey("sauce_expectedYourCartHeading"));
 
         String cartItemName = sauceCartPagePom.getCartItemName();
+        String cartItemPrice = sauceCartPagePom.getCartItemPrice();
 
-        Assert.assertEquals(cartItemName, cheapestProduct);
+        System.out.println(cartItemPrice + " : " + cheapestProductPrice);
+
+        Assert.assertEquals(cartItemName, cheapestProductName);
+        assertThat(cartItemPrice).isEqualTo(cheapestProductPrice);
 
         System.out.println("Cart Item Selected and Item in the Cart is Same.");
 
@@ -88,7 +97,7 @@ public class Test_SwagLabs extends CommonToAllTest {
         System.out.println("Sauce CheckoutPage 2 Heading -> " + sauceCheckoutPage2Pom.getHeading());
         assertThat(sauceCheckoutPage2Pom.getHeading()).isEqualTo(PropertyReader.readKey("sauce_expectedCheckout2HeadingName"));
 
-        assertThat(sauceCheckoutPage2Pom.getProductName()).isEqualTo(cheapestProduct);
+        assertThat(sauceCheckoutPage2Pom.getProductName()).isEqualTo(cheapestProductName);
         System.out.println("Cart Item Selected and Checkout Item is Same.");
         System.out.println("Product Name: " + sauceCheckoutPage2Pom.getProductName());
 
