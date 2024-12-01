@@ -24,11 +24,16 @@ public class Sauce_LoginPage_POM extends CommonToAllPage {
         visibilityOfElement(loginHeading);
         String heading = getElementAsText(loginHeading);
 
-        enterInput(usernameField, PropertyReader.readKey("sauce_username"));
-        enterInput(passwordField, PropertyReader.readKey("sauce_password"));
-        clickElement(submitBtn);
-
         return heading;
     }
+
+    public void setInputFieldsToLogin(){
+        enterInput(usernameField, PropertyReader.readKey("sauce_username"));
+        enterInput(passwordField, PropertyReader.readKey("sauce_password"));
+
+        elementToBeClickable(submitBtn);
+        clickElement(submitBtn);
+    }
+
 
 }

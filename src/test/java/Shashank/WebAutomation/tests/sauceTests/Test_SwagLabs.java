@@ -27,6 +27,8 @@ public class Test_SwagLabs extends CommonToAllTest {
         System.out.println("Heading Of Login Page -> " + headingOfLoginPage);
 
         Assert.assertEquals(headingOfLoginPage, PropertyReader.readKey("sauce_expectedHeadingName"));
+
+        sauceLoginPage.setInputFieldsToLogin();
     }
 
 
