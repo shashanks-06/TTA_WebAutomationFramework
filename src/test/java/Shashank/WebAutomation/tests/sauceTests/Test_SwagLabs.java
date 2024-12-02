@@ -16,6 +16,7 @@ public class Test_SwagLabs extends CommonToAllTest {
     Sauce_CartPage_POM sauceCartPagePom;
     Sauce_CheckoutPage_POM sauceCheckoutPagePom;
     Sauce_CheckoutPage2_POM sauceCheckoutPage2Pom;
+    Sauce_CompletedPage_POM sauceCompletedPagePom;
 
     private String cheapestProductName;
     private String cheapestProductPrice;
@@ -120,5 +121,35 @@ public class Test_SwagLabs extends CommonToAllTest {
         sauceCheckoutPage2Pom.clickOnFinish();
 
         System.out.println("Successfully Done Checking Out the Product!!");
+    }
+
+    @Test(dependsOnMethods = "test_CheckoutPage2OfSwagLabs")
+    public void test_CompletedPageOfSwagLabs(){
+
+        sauceCompletedPagePom = new Sauce_CompletedPage_POM(DriverManager.getDriver());
+        String completedPageHeading = sauceCompletedPagePom.getHeading();
+        System.out.println("Completed Page Heading: " + completedPageHeading);
+        assertThat(completedPageHeading).isEqualTo(PropertyReader.readKey("sauce_completedPageHeading"));
+
+        String completedPageGreetings = sauceCompletedPagePom.getGreetings();
+        System.out.println("Completed Page greeting: " + completedPageGreetings);
+        Assert.assertEquals(completedPageGreetings, PropertyReader.readKey("sauce_completedPageGreetings"));
+
+
+        String completedPageInstructions = sauceCompletedPagePom.getInstructions();
+        System.out.println("Completed Page Instructions: " + completedPageInstructions);
+        Assert.assertEquals(completedPageInstructions, PropertyReader.readKey("sauce_completedPageInstructions"));
+
+        sauceCompletedPagePom.clickBackToHomeBtn();
+        System.out.println("Successfully Done Checked Out the Product!!");
+    }
+
+    @Test(dependsOnMethods = "test_CompletedPageOfSwagLabs")
+    public void test_checkAfterCompletionBackToDashboard(){
+        sauceDashboardPom = new Sauce_Dashboard_POM(DriverManager.getDriver());
+        String backToDashboardHeading = sauceDashboardPom.getHeading();
+        System.out.println("Successfully Done Checked Out the Product and back to Dashboard : "+ backToDashboardHeading);
+
+        assertThat(backToDashboardHeading).isEqualTo(PropertyReader.readKey("sauce_expectedHeadingName"));
     }
 }
