@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/shash/IdeaProjects/TTA_WebAutomationFramework/src/test/java/Shashank/WebAutomation/tests/sauceTests/Test_SwagLabs.java">
+        <classes>
+            <class name="Shashank.WebAutomation.tests.sauceTests.Test_SwagLabs">
+                <methods>
+                    <include name="test_LoginToSwagLabs"/>
+                    <include name="test_DashboardOfSwagLabs"/>
+                    <include name="test_CartPageOfSwagLabs"/>
+                    <include name="test_CheckoutPageOfSwagLabs"/>
+                    <include name="test_CheckoutPage2OfSwagLabs"/>
+                    <include name="test_CompletedPageOfSwagLabs"/>
+                    <include name="test_checkAfterCompletionBackToDashboard"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
