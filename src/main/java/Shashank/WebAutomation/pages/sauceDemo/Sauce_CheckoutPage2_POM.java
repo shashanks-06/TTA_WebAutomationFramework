@@ -47,14 +47,14 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
         return getElementAsText(shippingInfoElement);
     }
 
-    public String getCleanedPrice(String wholeString, String stringToRemoved){
+    public String getTrimmedString(String wholeString, String stringToRemoved){
         return wholeString.replace(stringToRemoved, "");
     }
 
     public double getSubTotalPrice(){
         visibilityOfElement(subTotalPriceElement);
         String getPrice = getElementAsText(subTotalPriceElement); // Example: "Item total: $7.99"
-        String cleanedPrice = getCleanedPrice(getPrice, "Item total: $");
+        String cleanedPrice = getTrimmedString(getPrice, "Item total: $");
         return Double.parseDouble(cleanedPrice);
     }
 //    public double getSubTotalPrice(){
@@ -67,7 +67,7 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
     public double getTax(){
         visibilityOfElement(taxElement);
         String getTax = getElementAsText(taxElement); // Example: "Tax: $0.64"
-        String cleanedTax = getCleanedPrice(getTax, "Tax: $");
+        String cleanedTax = getTrimmedString(getTax, "Tax: $");
         return Double.parseDouble(cleanedTax);
     }
 //    public double getTax(){
