@@ -47,19 +47,35 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
         return getElementAsText(shippingInfoElement);
     }
 
+    public String getCleanedPrice(String wholeString, String stringToRemoved){
+        return wholeString.replace(stringToRemoved, "");
+    }
+
     public double getSubTotalPrice(){
         visibilityOfElement(subTotalPriceElement);
         String getPrice = getElementAsText(subTotalPriceElement); // Example: "Item total: $7.99"
-        double subTotal = Double.parseDouble(getPrice.replace("Item total: $", "")); // Remove "$" and convert to double
-        return subTotal;
+        String cleanedPrice = getCleanedPrice(getPrice, "Item total: $");
+        return Double.parseDouble(cleanedPrice);
     }
+//    public double getSubTotalPrice(){
+//        visibilityOfElement(subTotalPriceElement);
+//        String getPrice = getElementAsText(subTotalPriceElement); // Example: "Item total: $7.99"
+//        double subTotal = Double.parseDouble(getPrice.replace("Item total: $", "")); // Remove "Item total: $" and convert to double
+//        return subTotal;
+//    }
 
     public double getTax(){
         visibilityOfElement(taxElement);
         String getTax = getElementAsText(taxElement); // Example: "Tax: $0.64"
-        double tax = Double.parseDouble(getTax.replace("Tax: $", "")); // Remove "$" and convert to double
-        return tax;
+        String cleanedTax = getCleanedPrice(getTax, "Tax: $");
+        return Double.parseDouble(cleanedTax);
     }
+//    public double getTax(){
+//        visibilityOfElement(taxElement);
+//        String getTax = getElementAsText(taxElement); // Example: "Tax: $0.64"
+//        double tax = Double.parseDouble(getTax.replace("Tax: $", "")); // Remove "Tax: $" and convert to double
+//        return tax;
+//    }
 
     public double getTotalPriceWithTax(){
         return getSubTotalPrice() + getTax();
