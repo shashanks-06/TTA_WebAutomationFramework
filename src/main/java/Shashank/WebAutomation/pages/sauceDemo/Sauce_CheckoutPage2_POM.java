@@ -54,8 +54,8 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
     public double getSubTotalPrice(){
         visibilityOfElement(subTotalPriceElement);
         String getPrice = getElementAsText(subTotalPriceElement); // Example: "Item total: $7.99"
-        String cleanedPrice = getTrimmedString(getPrice, "Item total: $");
-        return Double.parseDouble(cleanedPrice);
+        String trimmedPrice = getTrimmedString(getPrice, "Item total: $");
+        return Double.parseDouble(trimmedPrice);
     }
 //    public double getSubTotalPrice(){
 //        visibilityOfElement(subTotalPriceElement);
@@ -67,8 +67,8 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
     public double getTax(){
         visibilityOfElement(taxElement);
         String getTax = getElementAsText(taxElement); // Example: "Tax: $0.64"
-        String cleanedTax = getTrimmedString(getTax, "Tax: $");
-        return Double.parseDouble(cleanedTax);
+        String trimmedTax = getTrimmedString(getTax, "Tax: $");
+        return Double.parseDouble(trimmedTax);
     }
 //    public double getTax(){
 //        visibilityOfElement(taxElement);
@@ -84,10 +84,15 @@ public class Sauce_CheckoutPage2_POM extends CommonToAllPage {
     public double getTotalPrice(){
         presenceOfElements(totalPriceElement);
         String getTotalPrice = getElementAsText(totalPriceElement); // Example: "Total: $8.63"
-        double TotalPrice = Double.parseDouble(getTotalPrice.replace("Total: $", "")); // Remove "$" and convert to double
-        return TotalPrice;
+        String trimmedTotalPrice = getTrimmedString(getTotalPrice, "Total: $");
+        return Double.parseDouble(trimmedTotalPrice);
     }
-
+//    public double getTotalPrice(){
+//        presenceOfElements(totalPriceElement);
+//        String getTotalPrice = getElementAsText(totalPriceElement); // Example: "Total: $8.63"
+//        double TotalPrice = Double.parseDouble(getTotalPrice.replace("Total: $", "")); // Remove "Total: $" and convert to double
+//        return TotalPrice;
+//    }
 
     public void clickOnFinish(){
         elementToBeClickable(finishBtnElement);
